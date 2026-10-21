@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BorrowMate | On-Campus Academic Equipment Rental</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-container">
+        <a href="#top" class="brand">
+          <img src="https://cdn.builder.io/api/v1/image/assets%2F7b9832621b1147b9b810f04a3d8942ea%2F5f8679d5accc475b8767c0b3475fd620?format=webp&width=800&height=1200" alt="BorrowMate" />
+        </a>
+        <nav class="site-nav">
+          <a href="#video">How it works</a>
+          <a href="#equipment">Equipment</a>
+          <a href="#rules">Rules</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a href="#equipment" class="header-cta-btn">Browse equipment</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- 1. HERO SECTION -->
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Built for Cebu Eastern College students</p>
+          <h1>Borrow the gear you need. <span class="highlight">Pay only for the time you use.</span></h1>
+          <p class="lede">
+            BorrowMate is the on-campus rental service for laptops, calculators, tablets, and power banks.
+            Get what you need for a class, exam, or project without buying it outright.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#equipment">Browse equipment →</a>
+            <a class="btn ghost" href="#video">How it works</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="rate-card-header">
+            <h3>Rate card</h3>
+            <span class="badge-pill">Campus rentals</span>
+          </div>
+          
+          <div class="rate-item">
+            <div class="rate-info">
+              <span class="rate-label">Hourly rentals</span>
+              <span class="rate-desc">Calculators, power banks, cables</span>
+            </div>
+            <div class="rate-price">₱15<span>/hr</span></div>
+          </div>
+
+          <div class="rate-divider"></div>
+
+          <div class="rate-item">
+            <div class="rate-info">
+              <span class="rate-label">Full day</span>
+              <span class="rate-desc">Laptops and tablets</span>
+            </div>
+            <div class="rate-price">₱75–₱100</div>
+          </div>
+
+          <div class="rate-footer-note">
+            <div class="feature-icon small">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h3"/><path d="M7 11h3"/><path d="M13 13h4"/><path d="M13 17h4"/></svg>
+            </div>
+            <p>Bring your student ID. Every rental is verified on campus.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. WATCH HOW BORROWMATE WORKS SECTION -->
+      <section id="video" class="panel">
+        <div class="section-head">
+          <p class="eyebrow">See it in action</p>
+          <h2>Watch how BorrowMate works</h2>
+        </div>
+        <div class="video-box">
+          <video id="promo-video" controls muted playsinline loop>
+            <source src="videos/demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <!-- 3. FEATURE HIGHLIGHTS SECTION -->
+      <section class="panel features-section">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15v-3"/></svg>
+            </div>
+            <h3>Pay only for the time you need</h3>
+            <p class="muted">Skip the price tag of a device you'll use once or twice. Rent for a few hours or a full day instead.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Quick in, quick out</h3>
+            <p class="muted">Keep the process simple so you can grab what you need between classes and get back to work.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+            </div>
+            <h3>Reliable on campus</h3>
+            <p class="muted">No more hoping a classmate has it free. Equipment is kept on campus and ready when you need it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PRICE CALCULATOR SECTION -->
+      <section id="calculator" class="panel calc-section">
+        <div class="calc-container">
+          <div class="calc-intro">
+            <p class="eyebrow">Price calculator</p>
+            <h2>Know the cost before you rent</h2>
+            <p class="muted">Pick an item, choose hourly or full-day rental, and see the estimated total instantly. Final totals are confirmed at the booth.</p>
+          </div>
+
+          <div class="calc-card">
+            <div class="calc-field">
+              <label for="calc-item">Equipment</label>
+              <select id="calc-item"></select>
+            </div>
+
+            <fieldset class="calc-field">
+              <legend>Rental period</legend>
+              <div class="pill-toggle">
+                <label class="pill-option">
+                  <input type="radio" name="calc-period" value="hourly" checked />
+                  <span>Hourly</span>
+                </label>
+                <label class="pill-option">
+                  <input type="radio" name="calc-period" value="fullDay" />
+                  <span>Full day</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div id="calc-hours-field" class="calc-field">
+              <label for="calc-hours">Number of hours (1 to 12)</label>
+              <input id="calc-hours" type="number" min="1" max="12" value="2" />
+            </div>
+
+            <div class="result" aria-live="polite">
+              <p class="muted">Estimated total</p>
+              <p id="calc-result" class="total">Loading calculator…</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. HOW IT WORKS / 4-STEPS SECTION -->
+      <section id="how-it-works" class="panel steps-section">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>From need to borrowed in four steps</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Pick gear</h3>
+            <p class="muted">Choose laptops, calculators, tablets, power banks, or cables.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Show student ID</h3>
+            <p class="muted">Verify your CEC enrollment in seconds at the campus booth.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Pay or reserve</h3>
+            <p class="muted">Pay on pickup with cash or GCash, or lock in gear ahead of time.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Return on time</h3>
+            <p class="muted">Bring items back when finished so fellow students can use them next.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. EQUIPMENT SECTION -->
+      <section id="equipment" class="equipment-dark-section">
+        <div class="equipment-dark-container">
+          <div class="equipment-header-row">
+            <div class="section-head dark-mode">
+              <p class="eyebrow">Equipment</p>
+              <h2>The essentials students borrow most</h2>
+            </div>
+            <p class="equipment-sub-desc">Select the items you need to build your rental list, then reserve them for later or rent them now.</p>
+          </div>
+
+          <input id="search" class="search dark-search" type="search" placeholder="Search equipment" aria-label="Search equipment" />
+          <div id="categories" class="chips dark-chips"></div>
+
+          <div class="list-panel dark-list-panel">
+            <div id="list"></div>
+            <div id="list-actions" class="actions" hidden>
+              <button id="clear-list" class="btn ghost dark-ghost" type="button">Clear list</button>
+              <button id="reserve-for-later" class="btn outline dark-outline" type="button">Reserve for later</button>
+              <button id="rent-now" class="btn primary dark-primary" type="button">Rent now</button>
+            </div>
+          </div>
+
+          <p id="count" class="muted dark-muted"></p>
+          <ul id="grid" class="equipment-grid"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- POPUP MODAL OVERLAY -->
+    <div id="rental-modal" class="modal-overlay" hidden>
+      <div class="modal-card">
+        <button id="modal-close" class="modal-close-btn" type="button" aria-label="Close modal">×</button>
+
+        <!-- FORM STEP -->
+        <div id="modal-step-form">
+          <div class="modal-header">
+            <h2 id="modal-title">Reserve your items</h2>
+            <p id="modal-subtitle" class="muted">Tell us who is renting, when, and how you want to pay.</p>
+          </div>
+
+          <form id="reserve-form" class="modal-form" novalidate>
+            <fieldset class="form-group">
+              <legend>How do you want the items?</legend>
+              <div class="modal-radio-grid">
+                <label class="modal-radio-card">
+                  <input type="radio" name="mode" value="reserve" checked />
+                  <span class="radio-card-content">
+                    <strong>Reserve for later</strong>
+                    <small>Hold items for a pickup date</small>
+                  </span>
+                </label>
+                <label class="modal-radio-card">
+                  <input type="radio" name="mode" value="rent" />
+                  <span class="radio-card-content">
+                    <strong>Rent now</strong>
+                    <small>Take items at the booth today</small>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="two-col">
+              <div>
+                <label for="name">Full name</label>
+                <input id="name" type="text" autocomplete="name" placeholder="Full name" />
+                <p class="error" id="err-name"></p>
+              </div>
+              <div>
+                <label for="student-id">Student ID number</label>
+                <input id="student-id" type="text" placeholder="Student ID number" />
+                <p class="error" id="err-studentId"></p>
+              </div>
+            </div>
+
+            <div id="date-field">
+              <label for="date">Pickup date</label>
+              <input id="date" type="date" />
+              <p class="error" id="err-date"></p>
+            </div>
+
+            <fieldset class="form-group">
+              <legend>Rental period</legend>
+              <div class="choice-row">
+                <label class="choice"><input type="radio" name="period" value="hourly" checked /> Hourly</label>
+                <label class="choice"><input type="radio" name="period" value="fullDay" /> Full day</label>
+              </div>
+            </fieldset>
+
+            <div id="hours-field">
+              <label for="hours">Number of hours (1 to 12)</label>
+              <input id="hours" type="number" min="1" max="12" value="2" />
+              <p class="error" id="err-hours"></p>
+            </div>
+
+            <fieldset class="form-group">
+              <legend>Payment</legend>
+              <div class="modal-radio-stack">
+                <label class="modal-radio-pill">
+                  <input type="radio" name="payment" value="pickup" checked />
+                  <span>Pay at pickup</span>
+                </label>
+                <label class="modal-radio-pill">
+                  <input type="radio" name="payment" value="gcash" />
+                  <span>GCash</span>
+                </label>
+                <label class="modal-radio-pill">
+                  <input type="radio" name="payment" value="card" />
+                  <span>Credit or debit card</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <p class="error" id="err-items"></p>
+            <button class="btn primary wide modal-btn-primary" type="submit">Continue to review</button>
+          </form>
+        </div>
+
+        <!-- REVIEW STEP -->
+        <div id="review" class="modal-step" hidden>
+          <div class="modal-header">
+            <h2>Review your rental</h2>
+            <p class="muted">Check the details and estimated total before you confirm.</p>
+          </div>
+          <div id="review-body"></div>
+          <div class="modal-actions">
+            <button id="back" class="btn ghost modal-btn-ghost" type="button">Back</button>
+            <button id="confirm" class="btn primary modal-btn-primary" type="button">Confirm rental</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS STEP -->
+        <div id="success" class="modal-step success-step" hidden>
+          <div class="success-icon-badge">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#14532d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h2>Rental confirmed</h2>
+          <div id="success-body"></div>
+          <button id="success-done" class="btn primary wide modal-btn-primary" type="button">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>Leon Kilat St., Pahina Central, Cebu City, Cebu, Philippines</p>
+      <p>© 2026 BorrowMate. All rights reserved.</p>
+    </footer>
+
+    <script type="py" src="main.py"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById("promo-video");
+        if (!video) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play().catch((error) => {
+                console.log("Autoplay prevented:", error);
+              });
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.5 });
+
+        observer.observe(video);
+      });
+    </script>
+  </body>
+</html>
