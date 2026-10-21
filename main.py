@@ -166,18 +166,22 @@ state = {"category": "All", "selected": set(), "review": None}
 
 
 def peso(amount):
+    """Format a number as pesos, e.g. 75 -> ₱75."""
     return f"₱{amount:,}"
 
 
 def money_range(low, high):
+    """Show one price, or a low-high range if the two differ."""
     return peso(low) if low == high else f"{peso(low)}–{peso(high)}"
 
 
 def esc(text):
+    """Escape HTML characters so user text cannot break the page."""
     return str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
 def estimate(items, period, hours):
+    """Return (low_total, high_total, unavailable_items) for the chosen rental period."""
     low_total = 0
     high_total = 0
     unavailable = []
@@ -198,6 +202,7 @@ def estimate(items, period, hours):
 
 
 def valid_hours(raw):
+    """Return True if the hours input is a whole number from 1 to 12."""
     try:
         return 1 <= int(raw) <= 12
     except (TypeError, ValueError):
@@ -205,6 +210,7 @@ def valid_hours(raw):
 
 
 def clamp_hours(raw):
+    """Convert the hours input to a number and keep it between 1 and 12."""
     try:
         value = int(raw)
     except (TypeError, ValueError):
@@ -213,18 +219,22 @@ def clamp_hours(raw):
 
 
 def checked(name):
+    """Return the value of the selected radio button in a group."""
     return document.querySelector(f'input[name="{name}"]:checked').value
 
 
 def set_checked(name, value):
+    """Select the radio button with the given group name and value."""
     document.querySelector(f'input[name="{name}"][value="{value}"]').checked = True
 
 
 def selected_items():
+    """Return the equipment items the user has selected."""
     return [item for item in EQUIPMENT if item["id"] in state["selected"]]
 
 
 def render_categories():
+    """Draw the category filter chips."""
     buttons = []
     for name in CATEGORIES:
         pressed = "true" if name == state["category"] else "false"
@@ -233,6 +243,7 @@ def render_categories():
 
 
 def render_list():
+    """Show the user's rental list and its action buttons."""
     chosen = selected_items()
     panel = document.getElementById("list")
     actions = document.getElementById("list-actions")
@@ -247,6 +258,7 @@ def render_list():
 
 
 def render_grid():
+    """Draw the equipment cards that match the search and category."""
     query = document.getElementById("search").value.strip().lower()
     visible = [
         item
@@ -275,16 +287,19 @@ def render_grid():
 
 
 def render_all():
+    """Redraw the categories, equipment grid and rental list."""
     render_categories()
     render_grid()
     render_list()
 
 
 def show_modal():
+    """Open the rental popup."""
     document.getElementById("rental-modal").hidden = False
 
 
 def hide_modal(event=None):
+    """Close the popup and reset it to the form step."""
     document.getElementById("rental-modal").hidden = True
     document.getElementById("modal-step-form").hidden = False
     document.getElementById("review").hidden = True
@@ -292,20 +307,24 @@ def hide_modal(event=None):
 
 
 def choose_mode(mode):
+    """Set reserve or rent mode, then open the popup."""
     set_checked("mode", mode)
     sync_reserve_fields()
     show_modal()
 
 
 def on_reserve_for_later(event=None):
+    """Open the popup in reserve mode."""
     choose_mode("reserve")
 
 
 def on_rent_now(event=None):
+    """Open the popup in rent-now mode."""
     choose_mode("rent")
 
 
 def sync_reserve_fields(event=None):
+    """Show or hide the date and hours fields and update the popup title."""
     document.getElementById("date-field").hidden = checked("mode") != "reserve"
     document.getElementById("hours-field").hidden = checked("period") != "hourly"
     mode = checked("mode")
@@ -317,6 +336,7 @@ def sync_reserve_fields(event=None):
 
 
 def update_calculator(event=None):
+    """Recalculate and display the price calculator result."""
     item = next(i for i in EQUIPMENT if i["id"] == document.getElementById("calc-item").value)
     period = checked("calc-period")
     document.getElementById("calc-hours-field").hidden = period != "hourly"
@@ -331,20 +351,24 @@ def update_calculator(event=None):
 
 
 def fill_calculator_options():
+    """Fill the calculator dropdown with all equipment."""
     options = "".join(f'<option value="{item["id"]}">{esc(item["name"])}</option>' for item in EQUIPMENT)
     document.getElementById("calc-item").innerHTML = options
 
 
 def set_error(field, message):
+    """Show an error message under a form field."""
     document.getElementById(f"err-{field}").textContent = message
 
 
 def clear_errors():
+    """Remove all form error messages."""
     for field in ["name", "studentId", "date", "hours", "items"]:
         set_error(field, "")
 
 
 def on_form_submit(event):
+    """Validate the form and move to the review step."""
     event.preventDefault()
     clear_errors()
 
@@ -391,6 +415,7 @@ def on_form_submit(event):
 
 
 def render_review():
+    """Show the rental summary and estimated total."""
     review = state["review"]
     body = document.getElementById("review-body")
     is_reserve = review["mode"] == "reserve"
@@ -430,11 +455,13 @@ def render_review():
 
 
 def on_back(event=None):
+    """Return from the review step to the form."""
     document.getElementById("review").hidden = True
     document.getElementById("modal-step-form").hidden = False
 
 
 def on_confirm(event=None):
+    """Create a reference code and show the success screen."""
     review = state["review"]
     if not review or review["unavailable"]:
         return
@@ -460,6 +487,7 @@ def on_confirm(event=None):
 
 
 def on_grid_click(event):
+    """Add or remove an item from the rental list when its card is clicked."""
     card = event.target.closest("[data-id]")
     if not js.Boolean(card):
         return
@@ -472,6 +500,7 @@ def on_grid_click(event):
 
 
 def on_category_click(event):
+    """Filter the equipment grid by the clicked category."""
     button = event.target.closest("[data-category]")
     if not js.Boolean(button):
         return
@@ -480,11 +509,13 @@ def on_category_click(event):
 
 
 def on_clear_list(event=None):
+    """Empty the rental list."""
     state["selected"].clear()
     render_all()
 
 
 def bind(element_id, event_name, handler):
+    """Attach a Python handler to an element's event."""
     document.getElementById(element_id).addEventListener(event_name, create_proxy(handler))
 
 
