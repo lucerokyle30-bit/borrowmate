@@ -11,14 +11,14 @@ On-campus academic equipment rental website for Cebu Eastern College students.
 | Member | Role |
 |--------|------|
 | Lucero Kyle | Project Lead |
-| Tumaquin Mike Stephen | Images A |
-| John Michael Macion | Images B |
+| Tumaquin Mike Stephen | Equiments Photo provider |
+| John Michael Macion | Equiments Photo provider|
 | Emman Pocong | Video |
-| Ryan Capa | Content (Rules and FAQ) |
-| Laurio Robert | Python / Logic |
+| Ryan Capa | Content (Rules and FAQ) html and css |
+| Laurio Robert | Pyscript function |
 
 ## Live site
 https://lucerokyle30-bit.github.io/borrowmate/
 
 ## Tech
-HTML, CSS, PyScript (Python in the browser)
+HTML, CSS, PyScript 
