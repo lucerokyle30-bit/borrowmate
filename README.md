@@ -22,3 +22,5 @@ https://lucerokyle30-bit.github.io/borrowmate/
 
 ## Tech
 HTML, CSS, PyScript 
+## Presentation video
+https://drive.google.com/file/d/1a_sGMTQmS-A53ktOtMBH8aA009GyjubQ/view?usp=drive_link
